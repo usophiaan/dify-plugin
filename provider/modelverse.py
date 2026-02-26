@@ -25,7 +25,7 @@ class ModelverseModelProvider(ModelProvider):
 
             client = openai.OpenAI(
                 api_key=api_key,
-                base_url="https://deepseek.modelverse.cn/v1"
+                base_url="https://api.modelverse.cn/v1"
             )
             models_response = client.models.list()
 

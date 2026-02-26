@@ -7,9 +7,11 @@ features:
   - multi-tool-call
   - agent-thought
   - stream-tool-call
+  - vision
+  - tool-call
 model_properties:
   mode: chat
-  context_size: 128000
+  context_size: 204800
 parameter_rules:
   - name: temperature
     use_template: temperature
@@ -23,7 +25,7 @@ parameter_rules:
     use_template: max_tokens
     default: 512
     min: 1
-    max: 16385
+    max: 65535
   - name: response_format
     use_template: response_format
 pricing:
