@@ -1,0 +1,71 @@
+model: zai-org/glm-4.7
+label:
+  zh_Hans: glm-4.7
+  en_US: glm-4.7
+model_type: llm
+features:
+  - multi-tool-call
+  - agent-thought
+  - stream-tool-call
+model_properties:
+  mode: chat
+  context_size: 200000
+parameter_rules:
+  - name: temperature
+    use_template: temperature
+    default: 1.0
+    min: 0.0
+    max: 1.0
+  - name: top_p
+    use_template: top_p
+    default: 0.95
+  - name: do_sample
+    label:
+      zh_Hans: 采样策略
+      en_US: Sampling Strategy
+    type: boolean
+    default: true
+    help:
+      zh_Hans: do_sample 为 true 时启用采样策略，为 false 时 temperature、top_p 将不生效。
+      en_US: When true, sampling strategy is enabled. When false, temperature and top_p will not take effect.
+  - name: max_tokens
+    use_template: max_tokens
+    default: 4096
+    min: 1
+    max: 131072
+  - name: web_search
+    type: boolean
+    label:
+      zh_Hans: 联网搜索
+      en_US: Web Search
+    default: false
+    help:
+      zh_Hans: 控制模型在生成文本时是否参考使用互联网搜索结果。
+      en_US: Controls whether the model refers to Internet search results when generating text.
+  - name: thinking
+    label:
+      zh_Hans: 推理模式
+      en_US: Thinking Mode
+    type: boolean
+    default: false
+    required: false
+    help:
+      zh_Hans: 控制模型的推理能力。
+      en_US: Controls the model's thinking capability.
+  - name: response_format
+    label:
+      zh_Hans: 回复格式
+      en_US: Response Format
+    type: string
+    required: false
+    options:
+      - text
+      - json_object
+# Tiered pricing (per million tokens):
+#   input < 32K:          input 3 CNY/M,  output 14 CNY/M
+#   32K <= input < 200K:  input 4 CNY/M,  output 16 CNY/M
+pricing:
+  input: '0.003'
+  output: '0.014'
+  unit: '0.001'
+  currency: CNY

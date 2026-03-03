@@ -1,0 +1,65 @@
+model: zai-org/glm-4.6v
+label:
+  zh_Hans: glm-4.6v
+  en_US: glm-4.6v
+model_type: llm
+features:
+  - vision
+  - video
+  - agent-thought
+  - tool-call
+  - multi-tool-call
+  - stream-tool-call
+model_properties:
+  mode: chat
+  context_size: 131072
+parameter_rules:
+  - name: temperature
+    use_template: temperature
+    default: 0.95
+    min: 0.0
+    max: 1.0
+  - name: top_p
+    use_template: top_p
+    default: 0.7
+  - name: do_sample
+    label:
+      zh_Hans: 采样策略
+      en_US: Sampling Strategy
+    type: boolean
+    default: true
+    help:
+      zh_Hans: do_sample 为 true 时启用采样策略，为 false 时 temperature、top_p 将不生效。
+      en_US: When true, sampling strategy is enabled. When false, temperature and top_p will not take effect.
+  - name: max_tokens
+    use_template: max_tokens
+    default: 16384
+    min: 1
+    max: 131072
+  - name: thinking
+    label:
+      zh_Hans: 推理模式
+      en_US: Thinking Mode
+    type: boolean
+    default: true
+    required: false
+    help:
+      zh_Hans: 控制模型的推理能力。
+      en_US: Controls the model's thinking capability.
+  - name: response_format
+    label:
+      zh_Hans: 回复格式
+      en_US: Response Format
+    type: string
+    required: false
+    options:
+      - text
+      - json_object
+# Tiered pricing (per million tokens):
+#   input <= 32K:          input 1 CNY/M,  output 3 CNY/M
+#   32K < input <= 128K:   input 2 CNY/M,  output 6 CNY/M
+pricing:
+  input: '0.001'
+  output: '0.003'
+  unit: '0.001'
+  currency: CNY
