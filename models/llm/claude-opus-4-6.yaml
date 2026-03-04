@@ -1,7 +1,7 @@
-model: qwen3-30b-a3b
+model: claude-opus-4-6
 label:
-  zh_Hans: Qwen3-30B-A3B
-  en_US: Qwen3-30B-A3B
+  zh_Hans: claude-opus-4-6
+  en_US: claude-opus-4-6
 model_type: llm
 features:
   - multi-tool-call
@@ -11,7 +11,7 @@ features:
   - tool-call
 model_properties:
   mode: chat
-  context_size: 204800
+  context_size: 1000000
 parameter_rules:
   - name: temperature
     use_template: temperature
@@ -28,9 +28,10 @@ parameter_rules:
     max: 65535
   - name: response_format
     use_template: response_format
+# Tiered pricing (0, 200K]: input 35.6, output 178, cache_write 44.5, cache_read 3.56 CNY/M tokens
+# Tiered pricing (200K, 1M]: input 71.2, output 267, cache_write 89, cache_read 7.12 CNY/M tokens
 pricing:
-  input: '0.00075'
-  output: '0.003'
+  input: '0.0356'
+  output: '0.178'
   unit: '0.001'
   currency: CNY
-

@@ -1,7 +1,7 @@
-model: qwen3-30b-a3b
+model: moonshotai/kimi-k2.5
 label:
-  zh_Hans: Qwen3-30B-A3B
-  en_US: Qwen3-30B-A3B
+  zh_Hans: Kimi-K2.5
+  en_US: Kimi-K2.5
 model_type: llm
 features:
   - multi-tool-call
@@ -29,8 +29,7 @@ parameter_rules:
   - name: response_format
     use_template: response_format
 pricing:
-  input: '0.00075'
-  output: '0.003'
+  input: '0.004'
+  output: '0.021'
   unit: '0.001'
   currency: CNY
-

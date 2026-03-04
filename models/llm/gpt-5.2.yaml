@@ -1,7 +1,7 @@
-model: qwen3-30b-a3b
+model: gpt-5.2
 label:
-  zh_Hans: Qwen3-30B-A3B
-  en_US: Qwen3-30B-A3B
+  zh_Hans: gpt-5.2
+  en_US: gpt-5.2
 model_type: llm
 features:
   - multi-tool-call
@@ -28,9 +28,9 @@ parameter_rules:
     max: 65535
   - name: response_format
     use_template: response_format
+# cache hit: 1.24 CNY/M tokens
 pricing:
-  input: '0.00075'
-  output: '0.003'
+  input: '0.01246'
+  output: '0.09968'
   unit: '0.001'
   currency: CNY
-

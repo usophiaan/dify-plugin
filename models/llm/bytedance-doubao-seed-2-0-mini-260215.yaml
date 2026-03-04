@@ -1,7 +1,7 @@
-model: qwen3-30b-a3b
+model: ByteDance/doubao-seed-2-0-mini-260215
 label:
-  zh_Hans: Qwen3-30B-A3B
-  en_US: Qwen3-30B-A3B
+  zh_Hans: doubao-seed-2-0-mini-260215
+  en_US: doubao-seed-2-0-mini-260215
 model_type: llm
 features:
   - multi-tool-call
@@ -11,7 +11,7 @@ features:
   - tool-call
 model_properties:
   mode: chat
-  context_size: 204800
+  context_size: 256000
 parameter_rules:
   - name: temperature
     use_template: temperature
@@ -28,9 +28,12 @@ parameter_rules:
     max: 65535
   - name: response_format
     use_template: response_format
+# Tiered pricing (per million tokens):
+#   (0, 32K]:    input 0.2 CNY/M,  output 2 CNY/M
+#   (32K, 128K]: input 0.4 CNY/M,  output 4 CNY/M
+#   (128K, 256K]:input 0.8 CNY/M,  output 8 CNY/M
 pricing:
-  input: '0.00075'
-  output: '0.003'
+  input: '0.0002'
+  output: '0.002'
   unit: '0.001'
   currency: CNY
-

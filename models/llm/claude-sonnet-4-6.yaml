@@ -1,7 +1,7 @@
-model: qwen3-30b-a3b
+model: claude-sonnet-4-6
 label:
-  zh_Hans: Qwen3-30B-A3B
-  en_US: Qwen3-30B-A3B
+  zh_Hans: claude-sonnet-4-6
+  en_US: claude-sonnet-4-6
 model_type: llm
 features:
   - multi-tool-call
@@ -11,7 +11,7 @@ features:
   - tool-call
 model_properties:
   mode: chat
-  context_size: 204800
+  context_size: 1000000
 parameter_rules:
   - name: temperature
     use_template: temperature
@@ -28,9 +28,10 @@ parameter_rules:
     max: 65535
   - name: response_format
     use_template: response_format
+# Tiered pricing (0, 200K]: input 21.36, output 106.8, cache_write 26.7, cache_read 2.13 CNY/M tokens
+# Tiered pricing (200K, 1M]: input 42.72, output 160.2, cache_write 53.4, cache_read 4.27 CNY/M tokens
 pricing:
-  input: '0.00075'
-  output: '0.003'
+  input: '0.02136'
+  output: '0.1068'
   unit: '0.001'
   currency: CNY
-

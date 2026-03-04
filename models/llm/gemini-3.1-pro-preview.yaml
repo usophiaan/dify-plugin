@@ -1,7 +1,7 @@
-model: qwen3-30b-a3b
+model: gemini-3.1-pro-preview
 label:
-  zh_Hans: Qwen3-30B-A3B
-  en_US: Qwen3-30B-A3B
+  zh_Hans: gemini-3.1-pro-preview
+  en_US: gemini-3.1-pro-preview
 model_type: llm
 features:
   - multi-tool-call
@@ -11,7 +11,7 @@ features:
   - tool-call
 model_properties:
   mode: chat
-  context_size: 204800
+  context_size: 1000000
 parameter_rules:
   - name: temperature
     use_template: temperature
@@ -28,9 +28,11 @@ parameter_rules:
     max: 65535
   - name: response_format
     use_template: response_format
+# Tiered pricing (per million tokens):
+#   (0, 200K]:   input 14.24 CNY/M,  output  85.44 CNY/M,  cache hit 1.42 CNY/M
+#   (200K, 1M]:  input 28.48 CNY/M,  output 128.16 CNY/M,  cache hit 2.84 CNY/M
 pricing:
-  input: '0.00075'
-  output: '0.003'
+  input: '0.01424'
+  output: '0.08544'
   unit: '0.001'
   currency: CNY
-
